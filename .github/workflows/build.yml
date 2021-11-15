@@ -49,30 +49,30 @@ jobs:
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jiran-left
         with:
-          args: 'build "-s zmk/app -b nice_nano -- -DSHIELD=jiran_left -DZMK_CONFIG=/github/workspace/config"'
+          args: 'build "-s zmk/app -b nice_nano2 -- -DSHIELD=jiran_left -DZMK_CONFIG=/github/workspace/config"'
       - name: Jiran DTS File
         if: ${{ always() }}
-        run: cat -n build/zephyr/nice_nano.dts.pre.tmp
+        run: cat -n build/zephyr/nice_nano2.dts.pre.tmp
       - name: Jiran Left Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jiran_left_nice_nano.uf2
+        run: cp build/zephyr/zmk.uf2 jiran_left_nice_nano2.uf2
       - name: Archive (Jiran Left)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jiran_left_nice_nano.uf2
+          path: jiran_left_nice_nano2.uf2
       - name: West Build (Jiran Right)
         uses: 'docker://zmkfirmware/zephyr-west-action-arm:latest'
         id: west-build-jiran-right
         with:
-          args: 'build "--pristine -s zmk/app -b nice_nano -- -DSHIELD=jiran_right -DZMK_CONFIG=/github/workspace/config"'
+          args: 'build "--pristine -s zmk/app -b nice_nano2 -- -DSHIELD=jiran_right -DZMK_CONFIG=/github/workspace/config"'
       - name: Jiran Right Kconfig file
         run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 jiran_right_nice_nano.uf2
+        run: cp build/zephyr/zmk.uf2 jiran_right_nice_nano2.uf2
       - name: Archive (Jiran Right)
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: jiran_right_nice_nano.uf2
+          path: jiran_right_nice_nano2.uf2
