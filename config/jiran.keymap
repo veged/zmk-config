@@ -13,6 +13,10 @@
 #define DFLT 0
 #define NAVI 1
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS>;
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
