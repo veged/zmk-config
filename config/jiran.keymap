@@ -11,6 +11,11 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include "zmk-helpers/helper.h"
 
+#define ___ &trans
+
+#define DFLT 0
+#define NAVI 1
+
 ZMK_COMBO(del, &kp DEL, 10 11, ALL)
 
 ZMK_COMBO(en, &kp F13, 4 5, ALL)
@@ -32,15 +37,10 @@ ZMK_COMBO(mic, &kp F15, 0 1, ALL)
 ZMK_COMBO(cam, &kp F16, 0 13, ALL)
 ZMK_COMBO(miccam, &kp F17, 0 1 13, ALL)
 
-ZMK_COMBO(home, &kp HOME, 53 54, NAVI)
-ZMK_COMBO(home, &kp END, 54 55, NAVI)
-ZMK_COMBO(home, &kp PG_UP, 44 53, NAVI)
-ZMK_COMBO(home, &kp PG_DN, 44 55, NAVI)
-
-#define ___ &trans
-
-#define DFLT 0
-#define NAVI 1
+ZMK_COMBO(nhome, &kp HOME, 53 54, NAVI)
+ZMK_COMBO(nend, &kp END, 54 55, NAVI)
+ZMK_COMBO(npgup, &kp PG_UP, 44 53, NAVI)
+ZMK_COMBO(npgdn, &kp PG_DN, 44 55, NAVI)
 
 ZMK_LAYER(dflt,
 //               ╭─────(0)─────┬─────(1)─────┬─────(2)─────┬─────(3)─────┬─────(4)─────┬─────(5)─────╮   ╭─────(6)─────┬─────(7)─────┬─────(8)─────┬─────(9)─────┬─────(10)────┬─────(11)────╮
