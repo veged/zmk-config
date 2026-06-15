@@ -16,6 +16,13 @@
 #define DFLT 0
 #define NAVI 1
 
+// Подавление дребезга (chatter) свитчей: наблюдается двоение на left space, T, N.
+// Дефолт ZMK — 5 мс; release поднят сильнее, т.к. дребезг чаще на размыкании.
+&kscan0 {
+    debounce-press-ms = <8>;
+    debounce-release-ms = <12>;
+};
+
 ZMK_COMBO(del, &kp DEL, 10 11, ALL)
 
 ZMK_COMBO(en, &kp F13, 4 5, ALL)
