@@ -19,7 +19,7 @@
 // Костыль против дребезга матрицы (двойные события на left space и N/Т, подтверждено логами).
 // Дефолт ZMK — 5 мс; release поднят сильнее. Подстраивай по интервалу дублей из serial-логов.
 &kscan0 {
-    debounce-press-ms = <8>;
+    debounce-press-ms = <0>;
     debounce-release-ms = <20>;
 };
 
